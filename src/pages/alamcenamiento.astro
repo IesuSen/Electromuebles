@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+import {MUEBLES_ALMACENAMIENTO} from '../data/MUEBLES_CONTENIDO'
+---
+
+<Layout title="Catálogo de muebles de almacenamiento">
+    <Navbar />
+    <section class="catalog">
+        <h1>Catálogo de Muebles de Almacenamiento</h1>
+        <div class="catalog-container">
+            {
+                MUEBLES_ALMACENAMIENTO.map((mueble) => (
+                    <div class='catalog-item'>
+                        <img src={mueble.imagen} alt={mueble.nombre}/>
+                        <h2>{mueble.nombre}</h2>
+                        <p class="price">{mueble.precio}</p>
+                        <button>Agregar al carrito</button>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+    <Footer></Footer>
+</Layout>
+
+<style>
+    li.producto {
+        list-style: none;
+    }
+</style>

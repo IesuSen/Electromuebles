@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { supabase } from "../lib/supabase";
+
+let { data: products, error: errorDB } = await supabase
+  .from('products')
+  .select('*')
+  .eq('category', 'MuebleTV');
+
+if (errorDB) {
+  console.error(errorDB);
+}
+
+---
+
+<Layout title="Catálogo de muebles para TV">
+    <Navbar/>
+    <section class="catalog">
+        <h1>Catálogo de Muebles para TV</h1>
+        <div class="catalog-container">
+            {
+                products.map((p) => (
+                    <div class='catalog-item'>
+                        <img src={p.image} alt={p.name}/>
+                        <h2>{p.name}</h2>
+                        <p class="price">${p.price}</p>
+                        <button id={p.category + '-' + p.id}>Agregar al carrito</button>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+    <Footer></Footer>
+</Layout>
+
+<style>
+    li.producto {
+        list-style: none;
+    }
+</style>

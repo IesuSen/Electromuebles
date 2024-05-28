@@ -1,0 +1,420 @@
+---
+
+---
+
+<nav class="navbar">
+  <div class="left">
+    <a href="index.html"
+      ><img
+        width="35"
+        height="35"
+        src="/public/images/imgindex/logo.jpg"
+        alt="LOGO"
+      /></a
+    >
+    <div class="leftext">
+      <a href="index.html"><span>Electro Muebles</span></a>
+    </div>
+  </div>
+  <ul class="options">
+    <li class="catalogo">
+      <div class="list-item_click">
+        <svg
+          class="catalogo-icon"
+          viewBox="0 0 298.929 298.929"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="2"
+            d="M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441
+                    L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082
+                    c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647
+                    c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z M1.55,20c0-2.454,1.997-4.45,4.45-4.45
+                    c2.454,0,4.45,1.997,4.45,4.45S8.454,24.45,6,24.45C3.546,24.45,1.55,22.454,1.55,20z"
+          ></path>
+        </svg>
+        <span class="catalogo-text">Catálogo</span>
+      </div>
+      <ul class="list-show">
+        <li><a href="/muebles">Muebles TV</a></li>
+        <li><a href="/recamaras">Recámaras</a></li>
+        <li><a href="/comedores">Comedores</a></li>
+        <li><a href="/salas">Salas</a></li>
+        <li><a href="/electrodomesticos">Electrodomésticos</a></li>
+        <li><a href="/alamcenamiento">Almacenatiento</a></li>
+      </ul>
+    </li>
+    <li><a href="/descuentos">Descuentos</a></li>
+    <li><a href="/ayuda">Ayuda y Soporte</a></li>
+    <div class="container-icon">
+      <li>
+        <a href="#">
+          <svg
+            class="icon-cart"
+            width="23"
+            height="60"
+            viewBox="0 0 64 64"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+          >
+            <path
+              fill="#FFFFFF"
+              d="m63.58,14.88c-0.379-0.478-0.959-0.758-1.574-0.758h-51.902l-1.695-9.496c-0.013-0.075-0.057-0.132-0.081-0.203-0.039-0.132-0.082-0.254-0.148-0.371-0.059-0.11-0.125-0.204-0.203-0.3-0.084-0.101-0.169-0.193-0.273-0.276-0.094-0.077-0.188-0.138-0.296-0.196-0.117-0.067-0.234-0.119-0.363-0.161-0.12-0.039-0.243-0.058-0.371-0.073-0.08-0.009-0.149-0.046-0.229-0.046h-4.45c-1.102,0-1.995,0.879-1.995,1.966 0,1.086 0.893,1.966 1.995,1.966h2.775l6.848,38.343 .027,.161c0,0.002 0,0.002 0,0.004l1.876,10.501c0.167,0.941 0.995,1.627 1.966,1.627h4.346c-1.182,0.072-2.126,1.02-2.126,2.203 0,1.23 1.013,2.229 2.263,2.229s2.264-0.998 2.264-2.229c0-1.184-0.947-2.131-2.128-2.203h28.047c-1.183,0.072-2.128,1.02-2.128,2.203 0,1.23 1.014,2.229 2.264,2.229 1.248,0 2.262-0.998 2.262-2.229 0-1.184-0.943-2.131-2.127-2.203h2.609c1.104,0 1.996-0.88 1.996-1.967 0-1.086-0.893-1.966-1.996-1.966h-33.873l-1.173-6.567h38.552c0.914,0 1.711-0.61 1.935-1.482l7.464-29.014c0.152-0.59 0.019-1.212-0.358-1.692zm-10.592,28.257h-37.697l-4.376-25.082h48.526l-6.453,25.082z"
+            ></path>
+          </svg>
+        </a>
+      </li>
+
+      <div id="contador-productos" class="count-products">
+        <span id="contador-productos">0</span>
+      </div>
+
+      <div class="container-card-products hidden-cart">
+        <div id="cart-products" class="row-product"></div>
+
+        <div class="cart-total">
+          <h3>Total:</h3>
+          <span class="total-pagar">$0</span>
+          <button class="btn-pagar" id="comprar-btn">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </ul>
+</nav>
+
+<style>
+  /* Estilos para la barra de navegación */
+  .navbar {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    background-color: rgba(79, 52, 21, 0.8);
+    backdrop-filter: blur(15px) saturate(160%);
+    justify-content: space-between;
+    padding: 8px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+
+  .left span {
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    line-height: 80px;
+    padding-top: 5px;
+  }
+
+  .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 2.1rem;
+  }
+
+  .options li a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+  }
+
+  .leftext a {
+    text-decoration: none;
+  }
+
+  .leftext span {
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .list-show {
+    display: none;
+    position: absolute;
+    background-color: rgba(79, 52, 21, 0.8);
+    padding: 10px;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .list-show li a {
+    color: white;
+  }
+
+  .list-show li:hover a {
+    color: rgb(79, 80, 96);
+  }
+
+  .catalogo:hover .list-show {
+    display: flex;
+  }
+
+  .catalogo-text {
+    color: white;
+  }
+
+  .catalogo:hover .catalogo-text,
+  .catalogo:hover .catalogo-icon {
+    color: rgb(79, 80, 96);
+  }
+
+  .catalogo-icon {
+    width: 10px;
+  }
+</style>
+
+<script>
+  import { jsPDF } from "jspdf";
+  import Toastify from "toastify-js";
+  import "toastify-js/src/toastify.css";
+  import { supabase } from "../lib/supabase";
+
+  async function getAllProductsInCart() {
+    const { data, error } = await supabase
+      .from("shopping_card_unique")
+      .select("*");
+
+    if (error) {
+      console.error("Error fetching products from cart:", error);
+    } else {
+      return data;
+    }
+  }
+
+  async function renderCart() {
+    const products = await getAllProductsInCart();
+    const cartProductsContainer = document.getElementById("cart-products");
+    const totalContainer = document.querySelector(".total-pagar");
+    const countContainer = document.getElementById("contador-productos");
+
+    cartProductsContainer.innerHTML = ""; // Limpia el contenido actual
+    let totalAmount = 0;
+    let totalCount = 0;
+
+    products.forEach((product) => {
+      const productElement = document.createElement("div");
+      productElement.classList.add("cart-product");
+      productElement.innerHTML = `
+    <div class="info-cart-product">
+      <span>${product.name}</span>
+      <span>Cantidad: ${product.quantity}</span>
+      <span>Precio: $${product.price}</span>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-close" id="delete-${product.product_id}">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+    </svg>
+  `;
+      cartProductsContainer.appendChild(productElement);
+
+      totalAmount += product.price * product.quantity;
+      totalCount += product.quantity;
+    });
+
+    totalContainer.textContent = `$${totalAmount}`;
+    countContainer.textContent = totalCount.toString();
+
+    // Agregar event listeners a los botones de eliminar
+    const cartProducts = document.querySelectorAll(".cart-product");
+    cartProducts.forEach(function (product) {
+      const deleteButton = product.querySelector(".icon-close") as HTMLElement;
+      const productId = parseInt(deleteButton.id.split("-")[1]);
+      
+      deleteButton.addEventListener("click", () => {
+        eliminarProductoDelCarrito(productId).then(() => {
+          renderCart();
+        });
+      });
+    });
+  }
+
+  const botonesAgregarCarrito = document.querySelectorAll(
+    ".catalog-item button"
+  );
+
+  botonesAgregarCarrito.forEach(function (boton) {
+    boton.addEventListener("click", function () {
+      let id = boton.id.split("-")[1];
+
+      agregarProductoAlCarrito(id);
+      // reload page
+      location.reload();
+    });
+  });
+
+  async function agregarProductoAlCarrito(productId) {
+    const { data, error } = await supabase.rpc(
+      "upsert_product_into_shopping_card",
+      {
+        p_product_id: productId,
+        p_cantidad: 1,
+      }
+    );
+
+    if (error) {
+      console.error("Error upserting product into shopping cart:", error);
+    } else {
+      console.log("Upsert successful:", data);
+    }
+  }
+
+  async function eliminarProductoDelCarrito(productId) {
+    const { data, error } = await supabase.rpc("decrement_product_quantity", {
+      p_product_id: productId,
+    });
+
+    if (error) {
+      console.error("Error decrementing product quantity:", error);
+    } else {
+      console.log("Decrement successful:", data);
+    }
+  }
+
+  async function deleteAllProducts() {
+  const { error } = await supabase
+    .from('shopping_card_unique')
+    .delete()
+    .neq('id', 0) // Usamos un filtro que siempre será verdadero para asegurarnos de que todas las filas sean eliminadas.
+
+  if (error) {
+    console.error('Error deleting products:', error)
+    return
+  }
+
+  console.log('All products have been deleted successfully.')
+}
+
+  async function decrementProductQuantity(productId, decrementBy) {
+    // Primero, obtenemos la cantidad actual del producto
+    let { data: product, error } = await supabase
+      .from('products')
+      .select('quantity')
+      .eq('id', productId)
+      .single()
+
+    if (error) {
+      console.error('Error fetching product:', error)
+      return
+    }
+
+    if (product.quantity < decrementBy) {
+      console.error('Not enough quantity to decrement:', product)
+      return
+    }
+
+    // Calculamos la nueva cantidad
+    const newQuantity = product.quantity - decrementBy
+
+    // Actualizamos la cantidad del producto
+    const { data, error: updateError } = await supabase
+      .from('products')
+      .update({ quantity: newQuantity })
+      .eq('id', productId)
+
+    if (updateError) {
+      console.error('Error updating product quantity:', updateError)
+      return
+    }
+
+    console.log('Product quantity updated:', data)
+  }
+
+  async function generarTicketPDF() {
+    const doc = new jsPDF();
+    const carrito = await getAllProductsInCart();
+
+    if (carrito.length === 0) {
+      Toastify({
+        text: "El carrito no puede estar vacio",
+        duration: 1000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #b00000, #ff0000)",
+        },
+        onClick: function () {}, // Callback after click
+      }).showToast();
+      return;
+    }
+
+    // Encabezado del ticket
+    doc.setFontSize(20);
+    doc.text("Ticket de Compra", doc.internal.pageSize.getWidth() / 2, 15, {
+      align: "center",
+    });
+
+    // Contenido del ticket
+    let yPos = 30;
+    carrito.forEach((producto, index) => {
+      const texto = `${index + 1}. ${producto.name} - Cantidad: ${producto.quantity} - Precio: $${producto.price}`;
+      doc.setFontSize(12);
+      doc.text(texto, 10, yPos);
+      yPos += 10;
+    });
+
+    // Total del ticket
+    const total = carrito.reduce(
+      (total, producto) => total + producto.quantity * producto.price,
+      0
+    );
+    doc.setFontSize(16);
+    doc.text(`Total: $${total}`, doc.internal.pageSize.getWidth() - 10, yPos, {
+      align: "right",
+    });
+
+    async function processCart(carrito) {
+      try {
+        const promises = carrito.map(producto => 
+          decrementProductQuantity(producto.product_id, producto.quantity)
+        )
+        await Promise.all(promises)
+        console.log('All product quantities updated successfully.')
+      } catch (error) {
+        console.error('Error processing cart:', error)
+      }
+    }
+
+    // Decrementar la cantidad de productos en la base de datos
+    carrito.forEach((producto, index) => {
+      decrementProductQuantity(producto.product_id, producto.quantity)
+    });
+
+    //Borrar productos del carrito
+    deleteAllProducts()
+
+    location.reload();
+
+    // Guardar el archivo PDF
+    doc.save("ticket.pdf");
+
+    console.log("Ticket generado correctamente.");
+  }
+
+  document.getElementById("comprar-btn").addEventListener("click", () => {
+    generarTicketPDF()
+  });
+
+  renderCart();
+</script>

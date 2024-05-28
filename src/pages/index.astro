@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="ElectroMuebles Zihuatanejo">
+	<div class="principal">
+		<Navbar/>
+		<section class="hero">
+            <div class="title">
+                <img class="title-img" src="images/imgindex/background-hero.jpg" alt="background-title">
+                <h1 class="title-text">Electro Muebles</h1>
+
+            </div>
+            <div class="slider-frame">
+                <ul class="slides">
+                    <li class="slide"><img src="images/imgindex/slider1.jpg" alt=""></li>
+                    <li class="slide"><img src="images/imgindex/slider2.jpg" alt=""></li>
+                    <li class="slide"><img src="images/imgindex/slider3.jpg" alt=""></li>
+                    <li class="slide"><img src="images/imgindex/slider4.jpg" alt=""></li>
+                </ul>
+            </div>
+            
+            <div class="slider-dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                
+            </div>
+            
+            <br>
+            <div class="description">
+                <section class="section-description" id="valor1">
+                    <img class="img-description" width="400" height="300" src="images/imgindex/img-side.jpg" alt="LUGAR">
+                </section>
+                <aside class="aside" id="valor2">
+                    Bienvenido a Electro Muebles, donde transformamos tu hogar en un oasis de confort para toda tu familia. Sumérgete en nuestra extensa selección de muebles y salas que no solo embellecen tu espacio, sino que también brindan funcionalidad y comodidad. Además, nuestra variedad de electrodomésticos de última tecnología está diseñada para simplificar tu vida diaria. Descubre cómo podemos convertir tu casa en el refugio perfecto para crear momentos inolvidables junto a tus seres queridos.
+
+                </aside>
+            </div><br>
+            <div class="ubication">
+                <aside class="aside-ubication" id="valor2">
+                    Nos encontramos estratégicamente ubicados en M9JX+C5, 40880 Ixtapa Zihuatanejo, Gro., Ixtapa, México, 40880. Nuestra conveniente ubicación en el corazón de Ixtapa garantiza un fácil acceso para que puedas visitarnos y descubrir nuestra amplia gama de muebles, salas y electrodomésticos diseñados para transformar tu hogar en un espacio de confort y estilo. Te invitamos a explorar nuestras instalaciones y disfrutar de una experiencia de compra única mientras te sumerges en el mundo de la decoración y el bienestar para tu hogar y tu familia.
+                </aside>
+                <section class="section-ubication" id="valor1">
+                    <a href="https://maps.app.goo.gl/5rCF22Uhru4N6JdC8" target="_blank"> <!-- Enlace a la ubicación de Google Maps -->
+                        <img class="img-ubication" width="500" height="300" src="images/imgindex/ubication.png" alt="LUGAR">
+                    </a>
+                </section>
+            </div>            
+
+        </section><br><br><br>
+	</div>
+	<Footer></Footer>
+</Layout>
