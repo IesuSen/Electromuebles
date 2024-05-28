@@ -3,7 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
-import {MUEBLES_ELECTRODOMESTICOS} from '../data/MUEBLES_CONTENIDO'
+import { supabase } from "../lib/supabase";
+
+let { data: products, error: errorDB } = await supabase
+  .from('products')
+  .select('*')
+  .eq('category', 'Electrodomésticos');
+
+if (errorDB) {
+  console.error(errorDB);
+}
 ---
 
 <Layout title="Catálogo de muebles de electrodomesticos">
@@ -12,12 +21,12 @@ import {MUEBLES_ELECTRODOMESTICOS} from '../data/MUEBLES_CONTENIDO'
         <h1>Catálogo de Muebles de Electrodomésticos</h1>
         <div class="catalog-container">
             {
-                MUEBLES_ELECTRODOMESTICOS.map((mueble) => (
+                products.map((p) => (
                     <div class='catalog-item'>
-                        <img src={mueble.imagen} alt={mueble.nombre}/>
-                        <h2>{mueble.nombre}</h2>
-                        <p class="price">{mueble.precio}</p>
-                        <button>Agregar al carrito</button>
+                        <img src={p.image} alt={p.name}/>
+                        <h2>{p.name}</h2>
+                        <p class="price">${p.price}</p>
+                        <button id={p.category + '-' + p.id}>Agregar al carrito</button>
                     </div>
                 ))
             }

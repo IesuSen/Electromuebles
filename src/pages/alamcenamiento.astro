@@ -2,8 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import { supabase } from "../lib/supabase";
 
-import {MUEBLES_ALMACENAMIENTO} from '../data/MUEBLES_CONTENIDO'
+let { data: products, error: errorDB } = await supabase
+  .from('products')
+  .select('*')
+  .eq('category', 'Almacenamiento');
+
+if (errorDB) {
+  console.error(errorDB);
+}
 ---
 
 <Layout title="Catálogo de muebles de almacenamiento">
@@ -12,12 +20,12 @@ import {MUEBLES_ALMACENAMIENTO} from '../data/MUEBLES_CONTENIDO'
         <h1>Catálogo de Muebles de Almacenamiento</h1>
         <div class="catalog-container">
             {
-                MUEBLES_ALMACENAMIENTO.map((mueble) => (
+                products.map((p) => (
                     <div class='catalog-item'>
-                        <img src={mueble.imagen} alt={mueble.nombre}/>
-                        <h2>{mueble.nombre}</h2>
-                        <p class="price">{mueble.precio}</p>
-                        <button>Agregar al carrito</button>
+                        <img src={p.image} alt={p.name}/>
+                        <h2>{p.name}</h2>
+                        <p class="price">${p.price}</p>
+                        <button id={p.category + '-' + p.id}>Agregar al carrito</button>
                     </div>
                 ))
             }
